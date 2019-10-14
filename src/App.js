@@ -10,6 +10,21 @@ import TextField from '@material-ui/core/TextField';
 import imgURL from './images/rest1.jpg';
 import './App.css';
 
+import firebase from 'firebase/app';
+import 'firebase/database';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAFzpavaaS5qMRo8FSZsqsZAaglgXL8H04",
+  authDomain: "teamie-blue.firebaseapp.com",
+  databaseURL: "https://teamie-blue.firebaseio.com",
+  projectId: "teamie-blue",
+  storageBucket: "teamie-blue.appspot.com",
+  messagingSenderId: "373175945503",
+  appId: "1:373175945503:web:0ce516f07c5d387642882a"
+};
+
+firebase.initializeApp(firebaseConfig);
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -46,9 +61,9 @@ const TeamMemberFilter = () => {
 
   return(
     <Paper>
-      <Typography variant="h5" component="h3">Our Team Has:</Typography>
+      <Typography variant="h5" component="h3">Party Size:</Typography>
       <form class="filter">
-        <TextField id="party-size" className={classes.TextField} type="number" margin="normal" variant="outlined"></TextField>
+        <TextField id="party-size" className={classes.textField} margin="normal"></TextField>
       </form>
     </Paper>
   )
@@ -57,11 +72,11 @@ const TeamMemberFilter = () => {
 const BudgetFilter = () => {
   return(
     <Paper>
-      <Typography variant="h5" component="h3">Our Budget Is:</Typography>
+      <Typography variant="h5" component="h3">Party Budget:</Typography>
       <form class="filter">
-        <TextField id="party-size" type="number" margin="normal" variant="outlined"></TextField>
+        <TextField id="party-budget" margin="normal"></TextField>
       </form>
-        Budget
+        
       <Button variant="contained">
         Average
       </Button>
