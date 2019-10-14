@@ -1,0 +1,69 @@
+{
+  "restaurants": [
+    {
+      "id": "1",
+      "name": "Koco Table",
+      "type": "Korean",
+      "price": 14,
+      "hours": "11:00-21:00",
+      "tables": [2, 4, 6, 10]
+    },
+    {
+      "id": "2",
+      "name": "Shinsen Evanston",
+      "type": "Japanese",
+      "price": 20,
+      "hours": "10:00-19:00",
+      "tables": [2, 4, 6, 10]
+    }, 
+    {
+      "id": "3",
+      "name": "Josh’s Hot Dogs",
+      "type": "Hot Dogs",
+      "price": 10,
+      "hours": "17:00-21:00",
+      "tables": [2, 4, 6, 10]
+    },
+    {
+      "id": "4",
+      "name": "Koi",
+      "type": "Japanese",
+      "price": 20,
+      "hours":"11:00-21:00", 
+      "tables": [2, 4, 6, 10]
+    },
+    {
+      "id": "5",
+      "name": "Shang's Noodles",
+      "type": "Chinese",
+      "price": 13,
+      "hours": "10:00-21:00",
+      "tables": [2, 4, 6, 10]
+    },
+    {
+      "id": "6",
+      "name": "Vinny’s Pizza & Pasta",
+      "type": "Pizza",
+      "price": 23,
+      "hours":"12:00-21:00",
+      "tables": [2, 4, 6, 10]
+    },
+    {
+      "id": "7",
+      "name": "Joy Yee's",
+      "type": "Chinese",
+      "price": 12,
+      "hours": "11:30-22:00",
+      "tables": [2, 4, 6, 10]
+    },
+    {
+      "id": "8",
+      "name": "Olive Mediterranean Grill",
+      "type": "Mediterranean",
+      "price": 13,
+      "hours": "10:30-21:00",
+      "tables": [2, 4, 6, 10]
+    }
+  ]
+}
+

@@ -20,3 +20,66 @@
 .App-link {
   color: #09d3ac;
 }
+
+.restaurant-card {
+  
+  background: #FFF;
+  margin: 14px;
+  padding: 14px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.restaurant-card h2{
+  color: #000;
+  font-family: Roboto;
+  font-size:20px;
+  font-weight: 500;
+
+}
+
+
+
+.restaurant-card h5{
+  color: #979797;
+  font-family: Roboto;
+  font-size:14px;
+}
+
+.restaurant-card type{
+  margin-right: 6px;
+  color:#000;
+  font-family: Roboto;
+  font-size:14px;
+
+}
+.restaurant-card vegan{
+  margin-right: 6px;
+  color:#fff;
+  font-family: Roboto;
+  font-size:10px;
+  padding:6px;
+  border-radius: 4px;
+  background-color: #B8E986;
+  
+}
+
+.restaurant-card gltfree{
+  margin-right: 6px;
+  color:#fff;
+  font-family: Roboto;
+  font-size:10px;
+  padding:6px;
+  border-radius: 4px;
+  background-color: #F8E71C;
+}
+
+.restaurant-card img{
+  
+  border-radius: 10px;
+  width: 100px;
+
+}
+
