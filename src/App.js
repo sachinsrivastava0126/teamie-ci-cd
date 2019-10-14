@@ -38,13 +38,17 @@ const AppBar_header = () => {
 
 
 const TeamMemberFilter = () => {
-  
+  const classes = makeStyles(theme => ({
+    TextField: {
+      width: '20px',
+    }
+  }));
 
   return(
     <Paper>
       <Typography variant="h5" component="h3">Our Team Has:</Typography>
       <form class="filter">
-        <TextField id="party-size" type="number" margin="normal" variant="outlined"></TextField>
+        <TextField id="party-size" className={classes.TextField} type="number" margin="normal" variant="outlined"></TextField>
       </form>
     </Paper>
   )
@@ -57,13 +61,9 @@ const BudgetFilter = () => {
       <form class="filter">
         <TextField id="party-size" type="number" margin="normal" variant="outlined"></TextField>
       </form>
-
+        Budget
       <Button variant="contained">
         Average
-      </Button>
-
-      <Button variant="contained">
-        Total
       </Button>
     </Paper>
   )
@@ -121,7 +121,7 @@ const Restaurant = ({key, restaurant}) => {
   return(
     <div className="restaurant-card">
      <Grid container spacing={3}>
-      <Grid item xs={10}>
+      <Grid item xs={7}>
    <h2>{restaurant.name}</h2>
    
    <h5>{restaurant.price} Lunch, Dinner</h5>
@@ -130,9 +130,14 @@ const Restaurant = ({key, restaurant}) => {
    <vegan>Vegan</vegan>
    <gltfree>Gluton Free</gltfree>
   </Grid>
-  <Grid item xs={1}>
+  
+  <Grid item xs={2}>
 <img src={imgURL}/>
 </Grid>
+<Grid item xs={3}>
+<Button>Add to list</Button>
+</Grid>
+
 </Grid>
 </div>
 )}
