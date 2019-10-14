@@ -93,7 +93,7 @@ const TimeFilter = () => {
         Lunch 11:30AM-1:30PM
       </Button>
 
-      <Button variant="contained">
+      <Button variant="contained" color="primary">
         Dinner 5:30PM-7:30PM
       </Button>
     </Paper>
