@@ -9,6 +9,9 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import imgURL from './images/rest1.jpg';
 import './App.css';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import Card from '@material-ui/core/Card';
 
 import firebase from 'firebase/app';
 import 'firebase/database';
@@ -32,6 +35,13 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
+    gridList: {
+    width: "100%",
+    height: 600,
+  },
+  card:{
+    margin: 20,
+  }
 }));
 
 const AppBar_header = () => {
@@ -93,27 +103,49 @@ const TimeFilter = () => {
         Lunch 11:30AM-1:30PM
       </Button>
 
-      <Button variant="contained" color="primary">
+      <Button variant="contained">
         Dinner 5:30PM-7:30PM
       </Button>
     </Paper>
   )
 }
 
+const Pool = () => {
+  const classes = useStyles()
 
+  return(
+    <div>
+      <Typography variant="h5" component="h3">Pool</Typography>
+<Card className={classes.card}>
+  <Typography>Selected Restaurant 1</Typography>
+  
+ 
+</Card>
+<Card className={classes.card}>
+  <Typography>Selected Restaurant 1</Typography>
+ 
+</Card>
+ </div>
+    
+  )
+}
   
 const GridComponent = ({restaurants}) => {
   return (
     <div>
-      <Grid container spacing={3}>
+      <Grid container spacing={10}>
+      <Grid item xs={1}></Grid>
       <Grid item xs={4}>
           <TeamMemberFilter></TeamMemberFilter>
           <BudgetFilter></BudgetFilter>
           <TimeFilter></TimeFilter>
+          <Pool></Pool>
+          <Button variant="contained" color="primary">Send out pool</Button>
       </Grid>
-      <Grid item xs={8}>
+      <Grid item xs={6}>
         <RestaurantList restaurants={restaurants}/>
       </Grid>
+      <Grid item xs={1}></Grid>
       </Grid>
       
     </div>
@@ -122,11 +154,18 @@ const GridComponent = ({restaurants}) => {
 }
 
 const RestaurantList = ({restaurants}) => {
+  const classes = useStyles()
   
   return(
-    <div>
-      { restaurants.map(restaurant => <Restaurant key={restaurant.id} restaurant={ restaurant } />) }
-    </div>
+    
+    <GridList className={classes.gridList}>
+        <GridListTile cols={2} style={{ height: 'auto' }}>
+        { restaurants.map(restaurant => <Restaurant key={restaurant.id} restaurant={ restaurant } />) }
+
+        </GridListTile>
+        
+           
+      </GridList>
 
   )
 }
@@ -136,24 +175,22 @@ const Restaurant = ({key, restaurant}) => {
   return(
     <div className="restaurant-card">
      <Grid container spacing={3}>
-      <Grid item xs={7}>
+      <Grid item xs={8}>
    <h2>{restaurant.name}</h2>
    
-   <h5>{restaurant.price} Lunch, Dinner</h5>
-   <h5>Available Table Sizes: {restaurant.tables.map(size => <span>{size}, </span>)}</h5>
+   <h5>{restaurant.price} Lunch, Dinner Available Table Sizes: {restaurant.tables.map(size => <span>{size}, </span>)}</h5>
    <type>{restaurant.type}</type>
    <vegan>Vegan</vegan>
    <gltfree>Gluton Free</gltfree>
   </Grid>
   
-  <Grid item xs={2}>
+  <Grid item xs={3}>
 <img src={imgURL}/>
-</Grid>
-<Grid item xs={3}>
-<Button>Add to list</Button>
+<Button variant="outlined" color="primary">Add to list</Button>
 </Grid>
 
 </Grid>
+
 </div>
 )}
 
@@ -179,7 +216,8 @@ const App = () => {
   return (
     <div>
       <AppBar_header/>
-      <GridComponent restaurants={restaurantsAll.restaurants}/>
+      <GridComponent restaurants={restaurantsAll.restaurants} />
+      
     </div>
   );
 }

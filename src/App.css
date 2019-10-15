@@ -1,48 +1,29 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
-}
 
 .restaurant-card {
-  
+  width:100%;
   background: #FFF;
   margin: 14px;
-  padding: 14px;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  line-height: 24px;
 }
 
 
 
-.restaurant-card h2{
+.restaurant-card ttl{
   color: #000;
   font-family: Roboto;
   font-size:20px;
   font-weight: 500;
+  
 
 }
 
 
 
-.restaurant-card h5{
+.restaurant-card des{
   color: #979797;
   font-family: Roboto;
   font-size:14px;
@@ -59,7 +40,7 @@
   margin-right: 6px;
   color:#fff;
   font-family: Roboto;
-  font-size:10px;
+  font-size:12px;
   padding:6px;
   border-radius: 4px;
   background-color: #B8E986;
@@ -70,7 +51,7 @@
   margin-right: 6px;
   color:#fff;
   font-family: Roboto;
-  font-size:10px;
+  font-size:12px;
   padding:6px;
   border-radius: 4px;
   background-color: #F8E71C;
@@ -83,3 +64,6 @@
 
 }
 
+.Grid {
+  position: fixed;
+}
