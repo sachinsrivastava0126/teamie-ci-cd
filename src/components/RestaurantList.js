@@ -55,6 +55,52 @@ const useStyles = makeStyles(theme => ({
   },
   }));
 
+  const Poll = ({}) => {
+    const classes = useStyles()
+   
+    
+    return(
+      <div>
+        <Typography variant="h5" component="h3">Poll</Typography>
+        <GridList>
+          <GridListTile>
+          <Card className={classes.card}>
+    
+    <Typography>Selected Restaurant 1</Typography>
+  
+  </Card>
+  <Card className={classes.card}>
+    <Typography>Selected Restaurant 2</Typography>
+   
+  </Card>
+  <Card className={classes.card}>
+    
+    <Typography>Selected Restaurant 3</Typography>
+  
+  </Card>
+  <Card className={classes.card}>
+    <Typography>Selected Restaurant 4</Typography>
+   
+  </Card>
+  <Card className={classes.card}>
+    
+    <Typography>Selected Restaurant 5</Typography>
+  
+  </Card>
+  <Card className={classes.card}>
+    <Typography>Selected Restaurant 6</Typography>
+   
+  </Card>
+          </GridListTile>
+        </GridList>
+  
+  
+    <Button variant="contained" color="primary">Send out poll</Button>
+   </div>
+      
+    )
+  }
+
 const AppBar_header =  ({numPeople, setNumPeople, setBudget, filterOnOff, setFilterOnOff}) => {
   const classes = useStyles()
 
@@ -213,14 +259,16 @@ const RestaurantList = ({restaurants}) => {
     const [budget, setBudget] = useState("");
     const [selectedTime, setSelectedTime] = useState("");
     const [filterOnOff, setFilterOnOff] = useState(false);
+    const classes = useStyles();
 
     return(
         <React.Fragment>
           <AppBar_header numPeople={numPeople} setNumPeople={setNumPeople} 
                           setBudget={setBudget} filterOnOff={filterOnOff} setFilterOnOff={setFilterOnOff}/>
           <div className='list'>
+            <Container>
             <Grid container spacing={10}>
-                <Grid item xs={1}></Grid>
+                
 
                 {/* <Grid item xs={4}>
                     <TeamMemberFilter state={{numPeople, setNumPeople}}></TeamMemberFilter> 
@@ -237,8 +285,16 @@ const RestaurantList = ({restaurants}) => {
                                         />)}
                 </Grid>
 
-                <Grid item xs={1}></Grid>
+                <Grid item xs={6}>
+                <Paper className={classes.paper}>
+
+          
+<Poll></Poll>
+
+</Paper>
+                </Grid>
             </Grid>
+            </Container>
           </div>
         </React.Fragment>
     )
