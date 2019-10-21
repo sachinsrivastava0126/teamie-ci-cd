@@ -38,7 +38,10 @@ const VotingApp = ({match}) => {
     return(
 
         // <h1>Voting for Event</h1>
-        <Poll question={pollQuestion} answers={pollAnswers} onVote={handleVote}/>
+        <Poll question={pollQuestion} 
+        answers={pollAnswers} 
+        onVote={handleVote}
+        questionSeparatorWidth="5"/>
 
     )
 }
