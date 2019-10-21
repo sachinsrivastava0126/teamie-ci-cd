@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 
@@ -39,23 +37,6 @@ const useStyles = makeStyles(theme => ({
     margin: 20,
   }
 }));
-
-const AppBar_header = ({}) => {
-  const classes = useStyles()
-
-  return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            Teamie
-          </Typography>
-          {/* <Button color="inherit">Login</Button> */}
-        </Toolbar>
-      </AppBar>
-    </div>
-  )
-}
 
 const Poll = ({pollRests}) => {
   const classes = useStyles()
@@ -98,7 +79,6 @@ const App = ({}) => {
 
   return (
     <React.Fragment>
-        <AppBar_header/>
         <RestaurantList restaurants={restaurants.restaurants}/>
     </React.Fragment>
   );
