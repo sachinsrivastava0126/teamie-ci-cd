@@ -86,7 +86,7 @@ const useStyles = makeStyles(theme => ({
     )
   }
 
-const AppBar_header =  ({numPeople, setNumPeople, setBudget, filterOnOff, setFilterOnOff}) => {
+const AppBar_header =  ({numPeople, setNumPeople, setBudget, setVibe}) => {
   const classes = useStyles()
 
   return (
@@ -104,7 +104,7 @@ const AppBar_header =  ({numPeople, setNumPeople, setBudget, filterOnOff, setFil
         <Toolbar>
         <Grid container>
         <Grid item xs={3}>
-        <AmbienceFilter></AmbienceFilter>
+        <AmbienceFilter setVibe={setVibe}></AmbienceFilter>
         </Grid>
 <Grid item xs={2}>
         <TeamMemberFilter state={{numPeople, setNumPeople}}></TeamMemberFilter>
@@ -113,11 +113,11 @@ const AppBar_header =  ({numPeople, setNumPeople, setBudget, filterOnOff, setFil
             <BudgetFilter setBudget={setBudget}></BudgetFilter>
             </Grid> 
             <Grid item xs={3}>
-              <DateFilter filterOnOff={filterOnOff} setFilterOnOff={setFilterOnOff}></DateFilter>
+              <DateFilter></DateFilter>
           </Grid> 
 
             <Grid item xs={2}>
-              <TimeFilter state={{filterOnOff,setFilterOnOff}} ></TimeFilter>
+              <TimeFilter></TimeFilter>
           </Grid> 
           
           </Grid>
@@ -203,7 +203,7 @@ const TimeFilter = ({state}) => {
       </form>   
     )
 }
-const AmbienceFilter = ({filterOnOff, setFilterOnOff}) => {
+const AmbienceFilter = ({setVibe}) => {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     age: '',
@@ -217,6 +217,7 @@ const AmbienceFilter = ({filterOnOff, setFilterOnOff}) => {
       ...oldValues,
       [event.target.name]: event.target.value,
     }));
+    setVibe(event.target.name);
   };
 
   return (
@@ -280,18 +281,32 @@ const DateFilter = ({filterOnOff, setFilterOnOff}) => {
 }
 
 const RestaurantList = ({restaurants, selectedRestaurants, setSelectedRestaurants}) => {
-    console.log("restaurants: " + restaurants.restaurants)
-    const filteredRestaurants = restaurants.filter(r => true); // this will re-render because of the changes in filter attributes which are states (time, etc)
     const [numPeople, setNumPeople] = useState("");
     const [budget, setBudget] = useState("");
     const [selectedTime, setSelectedTime] = useState("");
-    const [filterOnOff, setFilterOnOff] = useState(false);
+    const [vibe, setVibe] = useState("");
     const classes = useStyles();
-
+    const filteredRestaurants = restaurants.filter((r) => {
+      let filter_or_not = false;
+      if ((budget === "") || (parseFloat(r.price) <= parseFloat(budget)))
+      {
+        filter_or_not = true;
+      }
+      const restaurantVibes = [r.happy_hour, r.good_for_clients, r.family_friendly, r.team_bonding];
+      if ((vibe === "") || (restaurantVibes.map(r => r === vibe).reduce((a,v) => a || v)))
+      {
+        filter_or_not = true;
+      }
+      
+      
+      return filter_or_not;
+    }); // this will re-render because of the changes in filter attributes which are states (time, etc)
+  
     return(
         <React.Fragment>
           <AppBar_header numPeople={numPeople} setNumPeople={setNumPeople} 
-                          setBudget={setBudget} filterOnOff={filterOnOff} setFilterOnOff={setFilterOnOff}/>
+                          setBudget={setBudget}
+                          setVibe={setVibe} />
           <div className='list'>
             <Container>
             <Grid container spacing={10}>
@@ -310,7 +325,6 @@ const RestaurantList = ({restaurants, selectedRestaurants, setSelectedRestaurant
                                         restaurant={r}
                                         selectedRestaurants={selectedRestaurants}
                                         setSelectedRestaurants={setSelectedRestaurants}
-                                        // state={{selected, toggle}}
                                         />)}
                 </Grid>
 

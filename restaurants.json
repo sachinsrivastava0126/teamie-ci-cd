@@ -1,61 +1,92 @@
 {
   "restaurants": [
     {
-      ""
       "name": "Koco Table",
       "type": "Korean",
       "price": 14,
-      "hours": "11:00-21:00",
-      "tables": {"2": 1, "4": 2, "6": 1, "10": 1}
+      "hours": "1100-2100",
+      "tables": {"2": 1, "4": 2, "6": 1, "10": 1},
+      "happy_hour": false,
+      "good_for_clients": true,
+      "family_friendly": true,
+      "team_bonding": true
     },
     {
       "name": "Shinsen Evanston",
       "type": "Japanese",
       "price": 20,
-      "hours": "10:00-19:00",
-      "tables": {"2": 1, "4": 2, "6": 1, "10": 1}
+      "hours": "1000-1900",
+      "tables": {"2": 1, "4": 2, "6": 1, "10": 1},      
+      "happy_hour": false,
+      "good_for_clients": true,
+      "family_friendly": false,
+      "team_bonding": false
     }, 
     {
       "name": "Josh’s Hot Dogs",
       "type": "Hot Dogs",
       "price": 10,
-      "hours": "17:00-21:00",
-      "tables": {"2": 3, "4": 1, "6": 2, "10": 0}
+      "hours": "1700-2100",
+      "tables": {"2": 3, "4": 1, "6": 2, "10": 0},
+      "happy_hour": true,
+      "good_for_clients": false,
+      "family_friendly": true,
+      "team_bonding": false
     },
     {
       "name": "Koi",
       "type": "Japanese",
       "price": 20,
-      "hours":"11:00-21:00", 
-      "tables": {"2": 1, "4": 2, "6": 1, "10": 1}
+      "hours":"1100-2100", 
+      "tables": {"2": 1, "4": 2, "6": 1, "10": 1},
+      "happy_hour": true,
+      "good_for_clients": true,
+      "family_friendly": false,
+      "team_bonding": true
     },
     {
       "name": "Shang's Noodles",
       "type": "Chinese",
       "price": 13,
-      "hours": "10:00-21:00",
-      "tables": {"2": 3, "4": 1, "6": 0, "10": 1}
+      "hours": "1000-1400",
+      "tables": {"2": 3, "4": 1, "6": 0, "10": 1},
+      "happy_hour": false,
+      "good_for_clients": false,
+      "family_friendly": true,
+      "team_bonding": true
     },
     {
       "name": "Vinny’s Pizza & Pasta",
       "type": "Pizza",
       "price": 23,
-      "hours":"12:00-21:00",
-      "tables": {"2": 5, "4": 6, "6": 2, "10": 1}
+      "hours":"1000-1500",
+      "tables": {"2": 5, "4": 6, "6": 2, "10": 1},
+      "happy_hour": true,
+      "good_for_clients": false,
+      "family_friendly": true,
+      "team_bonding": true
     },
     {
       "name": "Joy Yee's",
       "type": "Chinese",
       "price": 12,
-      "hours": "11:30-22:00",
-      "tables": {"2": 5, "4": 0, "6": 2, "10": 2}
+      "hours": "0900-1400",
+      "tables": {"2": 5, "4": 0, "6": 2, "10": 2},
+      "happy_hour": false,
+      "good_for_clients": true,
+      "family_friendly": true,
+      "team_bonding": true
     },
     {
       "name": "Olive Mediterranean Grill",
       "type": "Mediterranean",
       "price": 13,
-      "hours": "10:30-21:00",
-      "tables": {"2": 4, "4": 3, "6": 1, "10": 0}
+      "hours": "1030-1300",
+      "tables": {"2": 4, "4": 3, "6": 1, "10": 0},
+      "happy_hour": true,
+      "good_for_clients": false,
+      "family_friendly": true,
+      "team_bonding": false
     }
   ]
 }
