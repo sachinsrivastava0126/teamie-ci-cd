@@ -31,7 +31,8 @@ const useStyles = makeStyles(theme => ({
   },
   formControl: {
     margin: theme.spacing(2),
-    minWidth: 300,
+    minWidth: 200,
+
   },
 
   title: {
@@ -118,16 +119,20 @@ const AppBar_header =  ({numPeople, setNumPeople, setBudget, filterOnOff, setFil
         <Container>
         <Toolbar>
         <Grid container>
+        <Grid item xs={3}>
+        <AmbienceFilter></AmbienceFilter>
+        </Grid>
 <Grid item xs={2}>
         <TeamMemberFilter state={{numPeople, setNumPeople}}></TeamMemberFilter>
           </Grid>
           <Grid item xs={2}>
             <BudgetFilter setBudget={setBudget}></BudgetFilter>
             </Grid> 
-            <Grid item xs={4}>
+            <Grid item xs={3}>
               <DateFilter filterOnOff={filterOnOff} setFilterOnOff={setFilterOnOff}></DateFilter>
           </Grid> 
-            <Grid item xs={4}>
+
+            <Grid item xs={2}>
               <TimeFilter state={{filterOnOff,setFilterOnOff}} ></TimeFilter>
           </Grid> 
           
@@ -197,7 +202,7 @@ const TimeFilter = ({state}) => {
     return(
       <form className={classes.root} autoComplete="off">
       <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="age-simple">for</InputLabel>
+        <InputLabel htmlFor="age-simple">During</InputLabel>
         <Select
           value={values.age}
           onChange={handleChange}
@@ -213,6 +218,44 @@ const TimeFilter = ({state}) => {
       </FormControl>
       </form>   
     )
+}
+const AmbienceFilter = ({filterOnOff, setFilterOnOff}) => {
+  const classes = useStyles();
+  const [values, setValues] = React.useState({
+    age: '',
+  });
+
+  const inputLabel = React.useRef(null);
+
+
+  const handleChange = event => {
+    setValues(oldValues => ({
+      ...oldValues,
+      [event.target.name]: event.target.value,
+    }));
+  };
+
+  return (
+    <form className={classes.root} autoComplete="off">
+      <FormControl className={classes.formControl}>
+        <InputLabel htmlFor="age-simple">The vibe we want</InputLabel>
+        <Select
+          value={values.age}
+          onChange={handleChange}
+          inputProps={{
+            name: 'age',
+            id: 'age-simple',
+          }}
+        >
+          <MenuItem value={10}>Happy Hour</MenuItem>
+          <MenuItem value={20}>Good for clients</MenuItem>
+          <MenuItem value={20}>Family Friendly</MenuItem>
+          <MenuItem value={20}>Internal team bonding</MenuItem>
+          
+        </Select>
+      </FormControl>
+      </form>
+      )
 }
  
 const DateFilter = ({filterOnOff, setFilterOnOff}) => {
