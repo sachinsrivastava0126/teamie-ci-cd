@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import imgURL from '../images/rest1.jpg';
 import Chip from '@material-ui/core/Chip';
-
+ 
 const Restaurant = ({key, restaurant}) => {
     // const {name, price, tables, type} = this.props
     

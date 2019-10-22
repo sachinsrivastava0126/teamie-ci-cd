@@ -9,7 +9,7 @@ import RestaurantList from './components/RestaurantList';
 
 import firebase from 'firebase/app';
 import 'firebase/database';
-
+ 
 const firebaseConfig = {
   apiKey: "AIzaSyAFzpavaaS5qMRo8FSZsqsZAaglgXL8H04",
   authDomain: "teamie-blue.firebaseapp.com",
