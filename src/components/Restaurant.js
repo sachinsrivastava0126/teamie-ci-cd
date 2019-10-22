@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import imgURL from '../images/rest1.jpg';
 import Chip from '@material-ui/core/Chip';
  
-const Restaurant = ({key, restaurant}) => {
+const Restaurant = ({key, restaurant, selectedRestaurants, setSelectedRestaurants}) => {
     // const {name, price, tables, type} = this.props
     
     const [btnToggle, toggleBtn] = useState(false);
@@ -13,9 +13,13 @@ const Restaurant = ({key, restaurant}) => {
       const btnToggleState = !btnToggle;
       if (btnToggle) {
         setBtnColor("default");
+        const new_selectedRestaurants = selectedRestaurants.filter(r => r.name  !== restaurant.name);
+        setSelectedRestaurants(new_selectedRestaurants);
       }
       else {
         setBtnColor("primary");
+        const new_selectedRestaurants = selectedRestaurants.concat([restaurant]);
+        setSelectedRestaurants(new_selectedRestaurants);
       }
       toggleBtn(btnToggleState);
     }

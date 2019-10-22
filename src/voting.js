@@ -7,7 +7,6 @@ import Card from '@material-ui/core/Card';
 import Component from 'react';
 import Poll from 'react-polls';
 
-
 // Declaring poll question and answers
 const pollQuestion = 'Select Restaurant';
 const pollAnswers = [

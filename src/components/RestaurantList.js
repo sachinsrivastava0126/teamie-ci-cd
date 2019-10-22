@@ -56,47 +56,31 @@ const useStyles = makeStyles(theme => ({
   },
   }));
 
-  const Poll = ({}) => {
-    const classes = useStyles()
-   
+  const Poll = ({selectedRestaurants}) => {
+    const classes = useStyles();
+    const handleClick = () => {
+      const urlCode = selectedRestaurants.map(r => r.id).toString();
+      window.location.href = "/voting/" + urlCode;
+    }
     
     return(
       <div>
         <Typography variant="h5" component="h3">Poll</Typography>
         <GridList>
           <GridListTile>
-          <Card className={classes.card}>
-    
-    <Typography>Selected Restaurant 1</Typography>
+
+            {
+              selectedRestaurants.map( (r) => 
+              <Card className={classes.card}><Typography>{r.name}</Typography></Card>
+              )
+            }
+          
   
-  </Card>
-  <Card className={classes.card}>
-    <Typography>Selected Restaurant 2</Typography>
-   
-  </Card>
-  <Card className={classes.card}>
-    
-    <Typography>Selected Restaurant 3</Typography>
-  
-  </Card>
-  <Card className={classes.card}>
-    <Typography>Selected Restaurant 4</Typography>
-   
-  </Card>
-  <Card className={classes.card}>
-    
-    <Typography>Selected Restaurant 5</Typography>
-  
-  </Card>
-  <Card className={classes.card}>
-    <Typography>Selected Restaurant 6</Typography>
-   
-  </Card>
           </GridListTile>
         </GridList>
   
   
-    <Button variant="contained" color="primary">Send out poll</Button>
+    <Button onClick={handleClick} variant="contained" color="primary">Send out Poll</Button>
    </div>
       
     )
@@ -295,7 +279,7 @@ const DateFilter = ({filterOnOff, setFilterOnOff}) => {
       )
 }
 
-const RestaurantList = ({restaurants}) => {
+const RestaurantList = ({restaurants, selectedRestaurants, setSelectedRestaurants}) => {
     console.log("restaurants: " + restaurants.restaurants)
     const filteredRestaurants = restaurants.filter(r => true); // this will re-render because of the changes in filter attributes which are states (time, etc)
     const [numPeople, setNumPeople] = useState("");
@@ -324,6 +308,8 @@ const RestaurantList = ({restaurants}) => {
                 <Grid item xs={6}>
                     {filteredRestaurants.map(r => <Restaurant key={r.id} 
                                         restaurant={r}
+                                        selectedRestaurants={selectedRestaurants}
+                                        setSelectedRestaurants={setSelectedRestaurants}
                                         // state={{selected, toggle}}
                                         />)}
                 </Grid>
@@ -332,7 +318,7 @@ const RestaurantList = ({restaurants}) => {
                 <Paper className={classes.paper}>
 
           
-<Poll></Poll>
+<Poll selectedRestaurants={selectedRestaurants}></Poll>
 
 </Paper>
                 </Grid>

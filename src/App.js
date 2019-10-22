@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
-
 import './App.css';
 import RestaurantList from './components/RestaurantList';
-
 import firebase from 'firebase/app';
 import 'firebase/database';
  
@@ -38,29 +35,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Poll = ({pollRests}) => {
-  const classes = useStyles()
-  //const [pollRests, setPollRests] = useState([]);
-  
-  return(
-    <div>
-      <Typography variant="h5" component="h3">Poll</Typography>
-<Card className={classes.card}>
-  
-  <Typography>Selected Restaurant 1</Typography>
 
-</Card>
-<Card className={classes.card}>
-  <Typography>Selected Restaurant 2</Typography>
- 
-</Card>
- </div>
-    
-  )
-}
 
 const App = ({}) => {
   const [restaurants, setRestaurants] = useState({restaurants: []});
+  const [selectedRestaurants, setSelectedRestaurants] = useState([]);
   const url = '/data/restaurants.json';
   const filteredUrl = '/data/restaurantsFiltered.json';
 
@@ -79,7 +58,9 @@ const App = ({}) => {
 
   return (
     <React.Fragment>
-        <RestaurantList restaurants={restaurants.restaurants}/>
+        <RestaurantList restaurants={restaurants.restaurants}
+                        selectedRestaurants={selectedRestaurants}
+                        setSelectedRestaurants={setSelectedRestaurants}/>
     </React.Fragment>
   );
 }
