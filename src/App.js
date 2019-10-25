@@ -61,6 +61,7 @@ const Poll = ({pollRests}) => {
 
 const App = ({}) => {
   const [restaurants, setRestaurants] = useState({restaurants: []});
+  const [addedRestaurants, setAddedRestaurants] = useState([]);
   const url = '/data/restaurants.json';
   const filteredUrl = '/data/restaurantsFiltered.json';
 
@@ -79,7 +80,8 @@ const App = ({}) => {
 
   return (
     <React.Fragment>
-        <RestaurantList restaurants={restaurants.restaurants}/>
+        <RestaurantList restaurants={restaurants.restaurants}
+                        addedRestaurants={} />
     </React.Fragment>
   );
 }
