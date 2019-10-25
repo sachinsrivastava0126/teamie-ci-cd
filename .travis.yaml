@@ -4,4 +4,4 @@ node_js:
 after_success:
   - npm run build
   - npm install -g firebase-tools
-  - firebase deploy --token $1//04Q4txoZrV1XzCgYIARAAGAQSNwF-L9IrQgxMuJXl96H9PNnVtqelGnKgoTlrermIeyk8TKDZZlAFYMq59CR6C7tVzw8-dAzqkzI --non-interactive
+  - firebase deploy --token $FIREBASE_TOKEN --non-interactive
