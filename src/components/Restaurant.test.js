@@ -1,6 +1,5 @@
 import React from 'react'
-import render from '@testing-library/react'
-import getByTestId from '@testing-library/react'
+import {render, getByTestId, fireEvent } from '@testing-library/react'
 import Restaurant from './Restaurant'
 
 
