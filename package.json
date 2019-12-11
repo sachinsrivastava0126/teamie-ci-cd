@@ -4,13 +4,13 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.5.1",
+    "@testing-library/react": "^9.3.3",
     "firebase": "^7.2.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-polls": "^1.2.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.2.0",
-    "react-testing-library": "^8.0.1"
+    "react-scripts": "^3.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
