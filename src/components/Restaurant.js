@@ -25,7 +25,7 @@ const Restaurant = ({key, restaurant, selectedRestaurants, setSelectedRestaurant
     }
   
     return(
-      <div className="restaurant-card">
+      <div className="restaurant-card" data-cy="cardOfRes">
        <Grid container spacing={3}>
         <Grid item xs={8}>
      <h2>{restaurant.name}</h2>
@@ -38,7 +38,7 @@ const Restaurant = ({key, restaurant, selectedRestaurants, setSelectedRestaurant
     
     <Grid item xs={3}>
   <img src={imgURL}/>
-  <Chip label="Add to list" clickable color={btnColor} onClick={handleClick} data-testid="addRest"/>
+  <Chip label="Add to list" clickable color={btnColor} onClick={handleClick} data-testid="addRest" data-cy={"addRest" + restaurant.id}/>
   </Grid>
   
   </Grid>
