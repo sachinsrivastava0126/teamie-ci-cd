@@ -13,8 +13,7 @@ cache:
   - ~/.cache
 script:
   - npm run test:ci
-  - npm test
-#  - CI=false npm run build
+  - CI=false npm run build
 after_success:
   - npm install -g firebase-tools
   - firebase deploy --project teamie-ci-cd --token $FIREBASE_TOKEN --non-interactive
